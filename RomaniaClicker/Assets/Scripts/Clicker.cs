@@ -63,7 +63,7 @@ public class Clicker : MonoBehaviour
 			
 			gm.owned0.text = "Detinuti: " + calculate(gm.unitsOwned, 0);
 			gm.actual0.text = ""+calculate(gm.unitsActual,0)+" g/s";
-			gm.pret0.text = "50 galbeni";
+//			gm.pret0.text = "50 galbeni";
 		} else {
 			for(int i = 0;i<5;i++) gm.money[i] = initial[i];
 		}
@@ -81,13 +81,47 @@ public class Clicker : MonoBehaviour
 			
 			gm.owned1.text = "Detinuti: " + calculate(gm.unitsOwned, 1);
 			gm.actual1.text = ""+calculate(gm.unitsActual,1)+" g/s";
-			gm.pret1.text = "50 galbeni";
+	//		gm.pret1.text = "50 galbeni";
 		} else {
 			for(int i = 0;i<5;i++) gm.money[i] = initial[i];
 		}
 	}
-
-
+	public void Click2(){ int w = 2;
+		float[] initial = new float[5];
+		for(int i = 0;i<5;i++) initial[i] = gm.money[i];
+		if(buy(gm.money, gm.unitsPrice, w)){
+			gm.unitsOwned[w,0] = gm.unitsOwned[w,0]+1;
+			//reshape(gm.unitsOwned, 0);
+			for(int i = 0;i<5;i++){
+				gm.unitsActual[w,i] = gm.unitsActual[w,i] + gm.unitsBeneficiu[w,i];
+			}
+			
+			
+			gm.owned2.text = "Detinuti: " + calculate(gm.unitsOwned, w);
+			gm.actual2.text = ""+calculate(gm.unitsActual,w)+" g/s";
+	//		gm.pret1.text = "50 galbeni";
+		} else {
+			for(int i = 0;i<5;i++) gm.money[i] = initial[i];
+		}
+	}
+	public void Click3(){ int w = 3;
+		float[] initial = new float[5];
+		for(int i = 0;i<5;i++) initial[i] = gm.money[i];
+		if(buy(gm.money, gm.unitsPrice, w)){
+			gm.unitsOwned[w,0] = gm.unitsOwned[w,0]+1;
+			//reshape(gm.unitsOwned, 0);
+			for(int i = 0;i<5;i++){
+				gm.unitsActual[w,i] = gm.unitsActual[w,i] + gm.unitsBeneficiu[w,i];
+			}
+			
+			
+			gm.owned3.text = "Detinuti: " + calculate(gm.unitsOwned, w);
+			gm.actual3.text = ""+calculate(gm.unitsActual,w)+" g/s";
+	//		gm.pret1.text = "50 galbeni";
+		} else {
+			for(int i = 0;i<5;i++) gm.money[i] = initial[i];
+		}
+	}
 
 	public string calculate(int[,] mvalue,int pos){
 		string sufix = "";

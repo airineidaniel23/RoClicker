@@ -41,10 +41,14 @@ public class GameManager : MonoBehaviour
 				unitsActual[i,j] = 0;
 			}
 		}
-		unitsPrice[0,0] = 50;
+		unitsPrice[0,0] = 10;
 		unitsBeneficiu[0,0] = 1;
-		unitsPrice[1,0] = 100;
-		unitsBeneficiu[1,0] = 5;
+		unitsPrice[1,1] = 1;
+		unitsBeneficiu[1,1] = 1;
+		unitsPrice[2,2] = 100;
+//		unitsBeneficiu[2,1] = 1;
+		unitsPrice[3,2] = 1;
+		unitsBeneficiu[3,2] = 1;
     }
 	public string calculate(float[] mvalue){
 		string sufix = "";
@@ -60,7 +64,9 @@ public class GameManager : MonoBehaviour
 				if(i >0)
 				     amount = mvalue[i] + mvalue[i-1]/1000;
 				 else amount = mvalue[0];
+				 if(i!=0)
 				 amount = (float)Math.Round((double)amount, 2);
+				else amount = (float)Math.Round((double)amount, 0);
 				 if(i == 4) sufix = "" + amount + "T";
 				 if(i == 3) sufix = "" + amount + "B";
 				 if(i == 2) sufix = "" + amount + "M";
@@ -82,7 +88,7 @@ public class GameManager : MonoBehaviour
 		money[i]+= (unitsActual[0,i] + unitsActual[1,i] + 
 								unitsActual[2,i] + unitsActual[3,i] )* Time.deltaTime;
 		
-		currency.text = "Tarate: " + calculate(money);
+		currency.text = "Galbeni: " + calculate(money);
         
     }
 }
